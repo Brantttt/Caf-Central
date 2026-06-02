@@ -1,9 +1,172 @@
-import { View, Text } from 'react-native';
+import { Link } from 'expo-router';
+import { StyleSheet, Text, View, ScrollView } from 'react-native';
 
 export default function Sobre() {
   return (
-    <View>
-      <Text>Tela Sobre</Text>
-    </View>
+    <ScrollView>
+
+      {/* TOPO */}
+      <View style={styles.topo}>
+        <Link href="/">
+          <View>
+            <Text style={styles.logoP1}>Café</Text>
+            <Text style={styles.logoP2}>Central</Text>
+          </View>
+        </Link>
+
+        <View style={styles.menu}>
+          <Link href="/">
+            <Text style={styles.menuItem}>Início</Text>
+          </Link>
+
+          <Link href="/sobre">
+            <Text style={[styles.menuItem, styles.ativo]}>Sobre</Text>
+          </Link>
+
+          <Link href="/cardapio">
+            <Text style={styles.menuItem}>Cardápio</Text>
+          </Link>
+
+          <Link href="/contato">
+            <Text style={styles.menuItem}>Contato</Text>
+          </Link>
+
+          <Link href="/login">
+            <Text style={styles.menuItem}>Login</Text>
+          </Link>
+        </View>
+      </View>
+
+      {/* CONTEÚDO */}
+      <View style={styles.container}>
+
+        <Text style={styles.titulo}>
+          Sobre Nós
+        </Text>
+
+        <Text style={styles.texto}>
+          O Café Central nasceu com o propósito de oferecer uma experiência única em cafés especiais, unindo qualidade e conforto.
+        </Text>
+
+        <Text style={styles.tituloSecao}>
+          Nossa missão
+        </Text>
+
+        <Text style={styles.texto}>
+          Proporcionar experiências marcantes através de cafés artesanais preparados com excelência e paixão.
+        </Text>
+
+        <Text style={styles.tituloSecao}>
+          Nossa essência
+        </Text>
+
+        <Text style={styles.texto}>
+          • Qualidade em cada detalhe
+        </Text>
+
+        <Text style={styles.texto}>
+          • Experiência acolhedora
+        </Text>
+
+        <Text style={styles.texto}>
+          • Inovação no preparo de cafés
+        </Text>
+
+      </View>
+
+      {/* RODAPÉ */}
+      <View style={styles.rodape}>
+        <Text style={styles.textoRodape}>
+          © 2026 Café Central. Todos os direitos reservados.
+        </Text>
+
+        <Link href="/contato">
+          <Text style={styles.linkRodape}>
+            Entre em contato
+          </Text>
+        </Link>
+      </View>
+
+    </ScrollView>
   );
 }
+
+const styles = StyleSheet.create({
+
+  topo: {
+    backgroundColor: '#1f3b2c',
+    padding: 20,
+    alignItems: 'center',
+  },
+
+  logoP1: {
+    color: '#fff',
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+
+  logoP2: {
+    color: '#c7a17a',
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+
+  menu: {
+    marginTop: 10,
+    alignItems: 'center',
+    gap: 8,
+  },
+
+  menuItem: {
+    color: '#fff',
+    fontSize: 16,
+  },
+
+  ativo: {
+    fontWeight: 'bold',
+    textDecorationLine: 'underline',
+  },
+
+  container: {
+    padding: 20,
+    alignItems: 'center',
+  },
+
+  titulo: {
+    fontSize: 26,
+    fontWeight: 'bold',
+    marginBottom: 15,
+    textAlign: 'center',
+  },
+
+  tituloSecao: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginTop: 15,
+    marginBottom: 5,
+    textAlign: 'center',
+  },
+
+  texto: {
+    textAlign: 'center',
+    marginBottom: 8,
+  },
+
+  rodape: {
+    backgroundColor: '#1f3b2c',
+    padding: 20,
+    alignItems: 'center',
+  },
+
+  textoRodape: {
+    color: '#fff',
+    fontSize: 12,
+    marginBottom: 5,
+  },
+
+  linkRodape: {
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+
+});
