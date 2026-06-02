@@ -2,7 +2,8 @@ import{
   View, // Para agrupar elementos (=div)
   Text, // Para exibir textos(= p, h1...)
   TouchableOpacity, // Para botões clicáveis (=button)
-  ScrollView,       // Para a área principal com scroll
+  ScrollView,
+         // Para a área principal com scroll
 } from 'react-native'; // Importa os componentes View e Text do React Native
  
 export default function Index() { // Define e exporta o componente principal da tela
@@ -80,4 +81,6 @@ export default function Index() { // Define e exporta o componente principal da 
     </ScrollView>
   );
 }
+
+
  
