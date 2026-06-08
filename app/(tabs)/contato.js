@@ -146,6 +146,7 @@ const styles = StyleSheet.create({
 
   container: {
     padding: 20,
+    justifyContent: 'space-between',
   },
 
   tituloPagina: {

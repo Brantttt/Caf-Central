@@ -6,220 +6,204 @@ import {
   TouchableOpacity,
   View
 } from 'react-native';
-
+ 
 export default function Index() {
   return (
-    <ScrollView>
-
-      {/* TOPO */}
+    <ScrollView contentContainerStyle={{ flexGrow: 1 }} style={styles.container}>
+      {/* TOPO (HEADER) */}
       <View style={styles.topo}>
-        <Link href="/">
-          <View>
-            <Text style={styles.logoP1}>Café</Text>
-            <Text style={styles.logoP2}>Central</Text>
-          </View>
-        </Link>
-
         <View style={styles.menu}>
-          <Link href="/">
-            <Text style={[styles.menuItem, styles.ativo]}>Início</Text>
+          <Link href='/'>
+            <Text style={[styles.menuItem, styles.ativo]}> Início </Text>
           </Link>
-
-          <Link href="/sobre">
-            <Text style={styles.menuItem}>Sobre</Text>
+          <Link href='/sobre'>
+            <Text style={styles.menuItem}> Sobre </Text>
           </Link>
-
-          <Link href="/cardapio">
-            <Text style={styles.menuItem}>Cardápio</Text>
+          <Link href='/contato'>
+            <Text style={styles.menuItem}> Contato </Text>
           </Link>
-
-          <Link href="/contato">
-            <Text style={styles.menuItem}>Contato</Text>
-          </Link>
-
-          <Link href="/login">
-            <Text style={styles.menuItem}>Login</Text>
+          <Link href='/login'>
+            <Text style={styles.menuItem}> Login </Text>
           </Link>
         </View>
       </View>
-
-      {/* CONTEÚDO PRINCIPAL */}
-      <View style={styles.container}>
-
-        <Text style={styles.titulo}>
-          Seja Bem-Vindo ao Café Central
-        </Text>
-
-        <Text style={styles.subtitulo}>
-          Aprecie lanches e cafés super relaxantes.
-        </Text>
-
-        <Text style={styles.subtitulo2}>
-          Para visualizar o cardápio é necessário fazer login.
-        </Text>
-
-        {/* BOTÕES */}
-        <View style={styles.botoes}>
-
-          <TouchableOpacity style={styles.btnPrimario}>
-            <Text style={styles.textoBotao}>Fazer Login</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.btnSecundario}>
-            <Text style={styles.textoBotao}>Fale Conosco</Text>
-          </TouchableOpacity>
-
+ 
+      {/* HERO */}
+      <View style={styles.principal}>
+        <View style={styles.titulosCabc}>
+          <Text style={styles.tituloCabc}>Seja Bem-Vindo ao Nosso Aplicativo da Café Central</Text>
+ 
+          <View style={styles.botoes}>
+            <TouchableOpacity style={styles.btnPrimario}>
+              <Text style={styles.textoBotao}>Fazer Login</Text>
+            </TouchableOpacity>
+ 
+            <TouchableOpacity style={styles.btnSecundario}>
+              <Text style={styles.textoBotao}>Fale Conosco</Text>
+            </TouchableOpacity>
+          </View>
+ 
+          <Text style={styles.subCabc}>Porque comprar na Café Central</Text>
         </View>
-
-        {/* DESTAQUES */}
-        <Text style={styles.tituloSecao}>
-          Por que comprar no Café Central?
-        </Text>
-
-        <Text style={styles.texto}>
-          Cafés feitos na hora com ingredientes selecionados.
-        </Text>
-
-        <Text style={styles.texto}>
-          Você escolhe todos os ingredientes do seu café ou lanche.
-        </Text>
-
-        <Text style={styles.texto}>
-          Produtos naturais, sem industrialização ou químicos.
-        </Text>
-
+ 
+        {/* SEÇÃO DE CARDS (DESTAQUES) */}
+        <View style={styles.containerCards}>
+         
+          {/* CARD 1 */}
+          <View style={styles.card}>
+            <Text style={styles.tituloCard}>Cafés feitos na hora</Text>
+            <Text style={styles.textoCard}>
+              Você escolhe todos os ingredientes. Será possível adicionar no seu café ou lanche.
+            </Text>
+          </View>
+ 
+          {/* CARD 2 */}
+          <View style={styles.card}>
+            <Text style={styles.tituloCard}>Serviços totalmente naturais</Text>
+            <Text style={styles.textoCard}>
+              Nossos serviços não passam por industrialização. É colhido à mão, sem processos químicos.
+            </Text>
+          </View>
+ 
+          {/* CARD 3 */}
+          <View style={styles.card}>
+            <Text style={styles.tituloCard}>Atendimento online imediato</Text>
+            <Text style={styles.textoCard}>
+              Nossos atendimentos são respondidos de imediato para não haver enrolação na hora de pedir o seu café.
+            </Text>
+          </View>
+ 
+        </View>
+ 
+        {/* RODAPÉ */}
+        <View style={styles.rodape}>
+          <Text style={styles.txtRodape}>®2026 Café Central. Todos direitos reservados</Text>
+          <Link href='/contato'>
+            <Text style={styles.txtRodapeLink}>Entre em contato</Text>
+          </Link>
+        </View>
       </View>
-
-      {/* RODAPÉ */}
-      <View style={styles.rodape}>
-        <Text style={styles.textoRodape}>
-          © 2026 Café Central. Todos os direitos reservados.
-        </Text>
-
-        <Link href="/contato">
-          <Text style={styles.linkRodape}>
-            Entre em contato
-          </Text>
-        </Link>
-      </View>
-
     </ScrollView>
   );
 }
-
+ 
 const styles = StyleSheet.create({
-
+  container: {
+    backgroundColor: '#f9f9f9', // Um fundo levemente cinza destaca os cards brancos
+  },
   topo: {
     backgroundColor: '#1f3b2c',
     padding: 20,
     alignItems: 'center',
   },
-
-  logoP1: {
-    color: '#fff',
-    fontSize: 24,
-    fontWeight: 'bold',
-  },
-
-  logoP2: {
-    color: '#c7a17a',
-    fontSize: 24,
-    fontWeight: 'bold',
-  },
-
   menu: {
-    marginTop: 10,
-    alignItems: 'center',
-    gap: 8,
+    flexDirection: 'row',
+    gap: 15,
   },
-
   menuItem: {
-    color: '#fff',
-    fontSize: 16,
+    color: '#f6f6f6',
+    fontWeight: 'bold',
   },
-
   ativo: {
-    fontWeight: 'bold',
-    textDecorationLine: 'underline',
+    color: '#a3e635',
   },
-
-  container: {
-    padding: 20,
+  principal: {
+    padding: 24,
+    justifyContent: 'space-between',
+  },
+  titulosCabc: {
     alignItems: 'center',
-  },
-
-  titulo: {
-    fontSize: 26,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 10,
-  },
-
-  subtitulo: {
-    fontSize: 18,
-    textAlign: 'center',
-    marginBottom: 5,
-  },
-
-  subtitulo2: {
-    fontSize: 16,
-    textAlign: 'center',
+    gap: 10,
     marginBottom: 20,
   },
-
+  tituloCabc: {
+    color: '#1f3b2c',
+    fontSize: 24,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  subCabc: {
+    color: '#1f3b2c',
+    fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginTop: 20,
+  },
   botoes: {
     flexDirection: 'row',
     gap: 10,
-    marginBottom: 25,
+    marginTop: 10,
   },
-
   btnPrimario: {
     flex: 1,
     backgroundColor: '#1f3b2c',
-    padding: 12,
-    borderRadius: 8,
+    paddingVertical: 12,
+    borderRadius: 10,
     alignItems: 'center',
+    padding: 15
   },
-
   btnSecundario: {
     flex: 1,
     backgroundColor: '#669982',
-    padding: 12,
-    borderRadius: 8,
+    paddingVertical: 12,
+    borderRadius: 10,
     alignItems: 'center',
+    padding: 15
   },
-
   textoBotao: {
-    color: '#fff',
+    color: '#f6f6f6',
     fontWeight: 'bold',
   },
-
-  tituloSecao: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 10,
-    textAlign: 'center',
+ 
+  /* --- ESTILOS DOS CARDS --- */
+  containerCards: {
+    gap: 16, // Espaçamento entre um card e outro
+    marginBottom: 30,
   },
-
-  texto: {
-    textAlign: 'center',
+  card: {
+    alignItems: 'center',
+    backgroundColor: '#e1d9d1',
+    borderRadius: 12,
+    padding: 16,
+    // Efeito de sombra para Android:
+    elevation: 3,
+    // Efeito de sombra para iOS:
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    // Borda sutil opcional:
+    borderWidth: 1,
+    borderColor: '#e5e7eb',
+  },
+  tituloCard: {
+    color: '#1f3b2c',
+    fontSize: 18,
+    fontWeight: 'bold',
     marginBottom: 8,
   },
-
+  textoCard: {
+    color: '#4b5563', // Um cinza escuro para melhor leitura
+    fontSize: 14,
+    lineHeight: 20,
+  },
+ 
   rodape: {
+    backgroundColor: '#1f3b2c',
     padding: 20,
     alignItems: 'center',
-    backgroundColor: '#1f3b2c',
+    borderRadius: 10,
+    marginTop:'auto',
   },
-
-  textoRodape: {
-    marginBottom: 10,
-    color: '#fff',
+  txtRodape: {
+    fontSize: 12,
+    color: 'white',
+    marginBottom: 4,
   },
-
-  linkRodape: {
-    color: '#fff',
+  txtRodapeLink: {
+    fontSize: 12,
+    color: '#a3e635',
     fontWeight: 'bold',
   },
-
 });
+ 
