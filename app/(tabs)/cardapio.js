@@ -129,7 +129,8 @@ export default function Cardapios() {
                     titulo: item.titulo,
                     descricao: item.descricao,
                     preco: item.preco,
-                  },
+                    conteudos: item.conteudos,
+                  }
                 }}
 
                 asChild

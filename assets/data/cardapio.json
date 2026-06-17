@@ -1,44 +1,50 @@
 [
     {
-    "id": "1",
-    "titulo": "Bolo no Pote",
-    "img": "bolo.jpg",
-    "descricao": "Bolos caseiros, feitos com muito amor🍰",
-    "preco": 17.99
+      "id": "1",
+      "titulo": "Bolo no Pote",
+      "img": "bolo.jpg",
+      "descricao": "Bolos caseiros, feitos com muito amor🍰",
+      "conteudos": "Bolo no pote artesanal feito com massa fofinha, recheios cremosos e cobertura generosa. Uma sobremesa prática e deliciosa.",
+      "preco": 17.99
     },
     {
-    "id": "2",
-    "titulo": "Cappuccino Cremoso",
-    "img": "capp.jpg",
-    "descricao": "Combinação perfeita de café, leite vaporizado e espuma cremosa.☕",
-    "preco": 22.99
+      "id": "2",
+      "titulo": "Cappuccino Cremoso",
+      "img": "capp.jpg",
+      "descricao": "Combinação perfeita de café, leite vaporizado e espuma cremosa.☕",
+      "conteudos": "Bebida italiana feita com espresso, leite vaporizado e espuma cremosa, resultando em um café suave e encorpado.",
+      "preco": 22.99
     },
     {
-    "id": "3",
-    "titulo": "Café Preto",
-    "img": "cafe.jpg",
-    "descricao": "Um café preto comum.☕",
-    "preco": 7.99
+      "id": "3",
+      "titulo": "Café Preto",
+      "img": "cafe.jpg",
+      "descricao": "Um café preto comum.☕",
+      "conteudos": "Café preparado sob alta pressão, com sabor intenso, aroma marcante e perfil tradicional.",
+      "preco": 7.99
     },
     {
-    "id": "4",
-    "titulo": "Cold Brew Gelado",
-    "img": "cafeg.jpg",
-    "descricao": "Café extraído a frio por horas, suave e refrescante.☕",
-    "preco": 13.99
+      "id": "4",
+      "titulo": "Cold Brew Gelado",
+      "img": "cafeg.jpg",
+      "descricao": "Café extraído a frio por horas, suave e refrescante.☕",
+      "conteudos": "Café preparado por infusão a frio por várias horas, resultando em uma bebida suave, menos ácida e refrescante.",
+      "preco": 13.99
     },
     {
-    "id": "5",
-    "titulo": "Latte Macchiato",
-    "img": "cafem.jpg",
-    "descricao": "Leite vaporizado com um toque suave de espresso.☕",
-    "preco": 11.99
+      "id": "5",
+      "titulo": "Latte Macchiato",
+      "img": "cafem.jpg",
+      "descricao": "Leite vaporizado com um toque suave de espresso.☕",
+      "conteudos": "Bebida feita com leite vaporizado e um toque de espresso, criando camadas suaves e sabor delicado.",
+      "preco": 11.99
     },
     {
-    "id": "6",
-    "titulo": "Misto Gourmet",
-    "img": "misto.jpg",
-    "descricao": "Pão na chapa com queijo derretido e presunto, simples e delicioso.🥪",
-    "preco": 14.99
+      "id": "6",
+      "titulo": "Misto Gourmet",
+      "img": "misto.jpg",
+      "descricao": "Pão na chapa com queijo derretido e presunto, simples e delicioso.🥪",
+      "conteudos": "Sanduíche quente feito com pão tostado, queijo derretido e presunto, perfeito para um lanche rápido e saboroso.",
+      "preco": 14.99
     }
-]
+  ]

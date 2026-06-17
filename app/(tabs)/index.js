@@ -105,12 +105,14 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 24,
     fontWeight: 'bold',
+    
   },
 
   logoP2: {
     color: '#c7a17a',
     fontSize: 24,
     fontWeight: 'bold',
+   
   },
 
   menu: {
