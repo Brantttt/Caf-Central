@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-
+import Header from '../../components/header';
+import Footer from '../../components/footer';
 import {
   StyleSheet,
   Text,
@@ -40,52 +41,10 @@ export default function Login() {
 
   return (
 
-    <ScrollView>
+    <ScrollView contentContainerStyle={styles.scrollContainer}>
 
       {/* TOPO */}
-      <View style={styles.topo}>
-
-        <Link href="/">
-          <View>
-            <Text style={styles.logoP1}>Café</Text>
-            <Text style={styles.logoP2}>Central</Text>
-          </View>
-        </Link>
-
-        <View style={styles.menu}>
-
-          <Link href="/">
-            <Text style={styles.menuItem}>
-              Início
-            </Text>
-          </Link>
-
-          <Link href="/sobre">
-            <Text style={styles.menuItem}>
-              Sobre
-            </Text>
-          </Link>
-
-          <Link href="/cardapio">
-            <Text style={styles.menuItem}>
-              Cardápio
-            </Text>
-          </Link>
-
-          <Link href="/contato">
-            <Text style={styles.menuItem}>
-              Contato
-            </Text>
-          </Link>
-
-          <Link href="/login">
-            <Text style={[styles.menuItem, styles.ativo]}>
-              Login
-            </Text>
-          </Link>
-
-        </View>
-      </View>
+      <Header ativo="login"></Header>
 
       {/* CONTEÚDO */}
       <View style={styles.container}>
@@ -103,9 +62,7 @@ export default function Login() {
           {/* EMAIL */}
           <View style={styles.campo}>
 
-            <Text style={styles.label}>
-              E-mail
-            </Text>
+            <Text style={styles.label}>E-mail</Text>
 
             <TextInput
               style={styles.input}
@@ -121,9 +78,7 @@ export default function Login() {
           {/* SENHA */}
           <View style={styles.campo}>
 
-            <Text style={styles.label}>
-              Senha
-            </Text>
+            <Text style={styles.label}>Senha</Text>
 
             <TextInput
               style={styles.input}
@@ -161,27 +116,17 @@ export default function Login() {
       </View>
 
       {/* RODAPÉ */}
-      <View style={styles.rodape}>
-
-        <Text style={styles.textoRodape}>
-          © 2026 Café Central. Todos os direitos reservados.
-        </Text>
-
-        <Link href="/contato">
-
-          <Text style={styles.linkRodape}>
-            Entre em contato
-          </Text>
-
-        </Link>
-
-      </View>
+      <Footer></Footer>
 
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+
+  scrollContainer: {
+    flexGrow: 1,
+  },
 
   topo: {
     backgroundColor: '#1f3b2c',
@@ -285,7 +230,7 @@ const styles = StyleSheet.create({
     padding: 20,
     alignItems: 'center',
     backgroundColor: '#1f3b2c',
-    marginTop: 30,
+    marginTop: 'auto',
   },
 
   textoRodape: {

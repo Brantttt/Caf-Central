@@ -1,41 +1,13 @@
 import { Link } from 'expo-router';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
-
+import Header from '../../components/header';
+import Footer from '../../components/footer';
 export default function Sobre() {
   return (
     <ScrollView>
 
       {/* TOPO */}
-      <View style={styles.topo}>
-        <Link href="/">
-          <View>
-            <Text style={styles.logoP1}>Café</Text>
-            <Text style={styles.logoP2}>Central</Text>
-          </View>
-        </Link>
-
-        <View style={styles.menu}>
-          <Link href="/">
-            <Text style={styles.menuItem}>Início</Text>
-          </Link>
-
-          <Link href="/sobre">
-            <Text style={[styles.menuItem, styles.ativo]}>Sobre</Text>
-          </Link>
-
-          <Link href="/cardapio">
-            <Text style={styles.menuItem}>Cardápio</Text>
-          </Link>
-
-          <Link href="/contato">
-            <Text style={styles.menuItem}>Contato</Text>
-          </Link>
-
-          <Link href="/login">
-            <Text style={styles.menuItem}>Login</Text>
-          </Link>
-        </View>
-      </View>
+      <Header ativo="sobre"></Header>
 
       {/* CONTEÚDO */}
       <View style={styles.container}>
@@ -75,17 +47,7 @@ export default function Sobre() {
       </View>
 
       {/* RODAPÉ */}
-      <View style={styles.rodape}>
-        <Text style={styles.textoRodape}>
-          © 2026 Café Central. Todos os direitos reservados.
-        </Text>
-
-        <Link href="/contato">
-          <Text style={styles.linkRodape}>
-            Entre em contato
-          </Text>
-        </Link>
-      </View>
+      <Footer></Footer>
 
     </ScrollView>
   );

@@ -11,6 +11,8 @@ import {
 
 import { useState } from 'react';
 import { Link } from 'expo-router';
+import Header from '../../components/header';
+import Footer from '../../components/footer';
 
 import cardapioJson from '../../assets/data/cardapio.json';
 
@@ -40,46 +42,10 @@ export default function Cardapios() {
 
   return (
 
-    <ScrollView>
+    <ScrollView contentContainerStyle={styles.scrollContainer}>
 
       {/* TOPO */}
-      <View style={styles.topo}>
-
-        <Link href="/">
-          <View>
-            <Text style={styles.logoP1}>Café</Text>
-            <Text style={styles.logoP2}>Central</Text>
-          </View>
-        </Link>
-
-        <View style={styles.menu}>
-
-          <Link href="/">
-            <Text style={styles.menuItem}>
-              Início
-            </Text>
-          </Link>
-
-          <Link href="/sobre">
-            <Text style={styles.menuItem}>
-              Sobre
-            </Text>
-          </Link>
-
-          <Link href="/cardapio">
-            <Text style={[styles.menuItem, styles.ativo]}>
-              Cardápio
-            </Text>
-          </Link>
-
-          <Link href="/contato">
-            <Text style={styles.menuItem}>
-              Contato
-            </Text>
-          </Link>
-
-        </View>
-      </View>
+      <Header ativo="cardapio"></Header>
 
       {/* CONTEÚDO */}
       <View style={styles.container}>
@@ -124,7 +90,6 @@ export default function Cardapios() {
               <Link
                 href={{
                   pathname: '/detalhesCardapio',
-
                   params: {
                     titulo: item.titulo,
                     descricao: item.descricao,
@@ -132,16 +97,13 @@ export default function Cardapios() {
                     conteudos: item.conteudos,
                   }
                 }}
-
                 asChild
               >
 
                 <TouchableOpacity style={styles.botao}>
-
                   <Text style={styles.textoBotao}>
                     Ver detalhes
                   </Text>
-
                 </TouchableOpacity>
 
               </Link>
@@ -155,21 +117,7 @@ export default function Cardapios() {
       </View>
 
       {/* RODAPÉ */}
-      <View style={styles.rodape}>
-
-        <Text style={styles.textoRodape}>
-          © 2026 Café Central. Todos os direitos reservados.
-        </Text>
-
-        <Link href="/contato">
-
-          <Text style={styles.linkRodape}>
-            Entre em contato
-          </Text>
-
-        </Link>
-
-      </View>
+      <Footer></Footer>
 
     </ScrollView>
 
@@ -177,6 +125,10 @@ export default function Cardapios() {
 }
 
 const styles = StyleSheet.create({
+
+  scrollContainer: {
+    flexGrow: 1,
+  },
 
   topo: {
     backgroundColor: '#1f3b2c',
@@ -278,6 +230,7 @@ const styles = StyleSheet.create({
     padding: 20,
     alignItems: 'center',
     backgroundColor: '#1f3b2c',
+    marginTop: 'auto',
   },
 
   textoRodape: {

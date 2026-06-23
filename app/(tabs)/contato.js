@@ -1,13 +1,15 @@
 import { Link } from 'expo-router';
 import { useState } from 'react';
+import Header from '../../components/header';
+import Footer from '../../components/footer';
 import {
+  Alert,
+  ScrollView,
   StyleSheet,
   Text,
-  View,
   TextInput,
   TouchableOpacity,
-  ScrollView,
-  Alert,
+  View,
 } from 'react-native';
 
 export default function Contato() {
@@ -29,35 +31,10 @@ export default function Contato() {
   };
 
   return (
-    <ScrollView>
+    <ScrollView contentContainerStyle={styles.scrollContainer}>
 
       {/* TOPO */}
-      <View style={styles.topo}>
-        <Link href="/">
-          <View>
-            <Text style={styles.logoP1}>Café</Text>
-            <Text style={styles.logoP2}>Central</Text>
-          </View>
-        </Link>
-
-        <View style={styles.menu}>
-          <Link href="/">
-            <Text style={styles.menuItem}>Início</Text>
-          </Link>
-
-          <Link href="/sobre">
-            <Text style={styles.menuItem}>Sobre</Text>
-          </Link>
-
-          <Link href="/cardapio">
-            <Text style={styles.menuItem}>Cardápio</Text>
-          </Link>
-
-          <Link href="/contato">
-            <Text style={[styles.menuItem, styles.ativo]}>Contato</Text>
-          </Link>
-        </View>
-      </View>
+      <Header ativo="contato"></Header>
 
       {/* CONTEÚDO */}
       <View style={styles.container}>
@@ -93,23 +70,18 @@ export default function Contato() {
       </View>
 
       {/* RODAPÉ */}
-      <View style={styles.rodape}>
-        <Text style={styles.textoRodape}>
-          © 2026 Café Central. Todos os direitos reservados.
-        </Text>
-
-        <Link href="/contato">
-          <Text style={styles.linkRodape}>
-            Entre em contato
-          </Text>
-        </Link>
-      </View>
+      <Footer></Footer>
 
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+
+  scrollContainer: {
+    flexGrow: 1,
+  },
+
   topo: {
     backgroundColor: '#1f3b2c',
     padding: 20,
@@ -146,7 +118,6 @@ const styles = StyleSheet.create({
 
   container: {
     padding: 20,
-    justifyContent: 'space-between',
   },
 
   tituloPagina: {
@@ -185,7 +156,8 @@ const styles = StyleSheet.create({
   rodape: {
     padding: 20,
     alignItems: 'center',
-    backgroundColor: '#1f3b2c'
+    backgroundColor: '#1f3b2c',
+    marginTop: 'auto',
   },
 
   textoRodape: {

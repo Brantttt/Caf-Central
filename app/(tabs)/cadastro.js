@@ -11,6 +11,8 @@ import {
 } from 'react-native';
 
 import { Link } from 'expo-router';
+import Header from '../../components/header';
+import Footer from '../../components/footer';
 
 export default function Cadastro() {
   const [nome, setNome] = useState('');
@@ -34,52 +36,11 @@ export default function Cadastro() {
   };
 
   return (
-    <ScrollView>
+    <ScrollView contentContainerStyle={styles.scrollContainer}>
 
       {/* TOPO */}
-      <View style={styles.topo}>
+     <Header ativo="cadastro"></Header>
 
-        <Link href="/">
-          <View>
-            <Text style={styles.logoP1}>Café</Text>
-            <Text style={styles.logoP2}>Central</Text>
-          </View>
-        </Link>
-
-        <View style={styles.menu}>
-
-          <Link href="/">
-            <Text style={styles.menuItem}>
-              Início
-            </Text>
-          </Link>
-
-          <Link href="/sobre">
-            <Text style={styles.menuItem}>
-              Sobre
-            </Text>
-          </Link>
-
-          <Link href="/cardapio">
-            <Text style={styles.menuItem}>
-              Cardápio
-            </Text>
-          </Link>
-
-          <Link href="/contato">
-            <Text style={styles.menuItem}>
-              Contato
-            </Text>
-          </Link>
-
-          <Link href="/cadastro">
-            <Text style={[styles.menuItem, styles.ativo]}>
-              Cadastro
-            </Text>
-          </Link>
-
-        </View>
-      </View>
 
       {/* CONTEÚDO */}
       <View style={styles.container}>
@@ -96,10 +57,7 @@ export default function Cadastro() {
 
           {/* NOME */}
           <View style={styles.campo}>
-            <Text style={styles.label}>
-              Nome
-            </Text>
-
+            <Text style={styles.label}>Nome</Text>
             <TextInput
               style={styles.input}
               placeholder="Digite seu nome"
@@ -110,10 +68,7 @@ export default function Cadastro() {
 
           {/* EMAIL */}
           <View style={styles.campo}>
-            <Text style={styles.label}>
-              E-mail
-            </Text>
-
+            <Text style={styles.label}>E-mail</Text>
             <TextInput
               style={styles.input}
               placeholder="Digite seu email"
@@ -126,10 +81,7 @@ export default function Cadastro() {
 
           {/* SENHA */}
           <View style={styles.campo}>
-            <Text style={styles.label}>
-              Senha
-            </Text>
-
+            <Text style={styles.label}>Senha</Text>
             <TextInput
               style={styles.input}
               placeholder="Digite sua senha"
@@ -145,34 +97,24 @@ export default function Cadastro() {
             style={styles.botao}
             onPress={realizarCadastro}
           >
-            <Text style={styles.textoBotao}>
-              Cadastrar
-            </Text>
+            <Text style={styles.textoBotao}>Cadastrar</Text>
           </TouchableOpacity>
 
         </View>
       </View>
 
       {/* RODAPÉ */}
-      <View style={styles.rodape}>
-
-        <Text style={styles.textoRodape}>
-          © 2026 Café Central. Todos os direitos reservados.
-        </Text>
-
-        <Link href="/contato">
-          <Text style={styles.linkRodape}>
-            Entre em contato
-          </Text>
-        </Link>
-
-      </View>
+      <Footer></Footer>
 
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+
+  scrollContainer: {
+    flexGrow: 1,
+  },
 
   topo: {
     backgroundColor: '#1f3b2c',
@@ -269,7 +211,7 @@ const styles = StyleSheet.create({
     padding: 20,
     alignItems: 'center',
     backgroundColor: '#1f3b2c',
-    marginTop: 30,
+    marginTop: 'auto',
   },
 
   textoRodape: {
