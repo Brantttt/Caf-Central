@@ -24,15 +24,20 @@ export default function Index() {
           </Text>
 
           <View style={styles.botoes}>
-            <TouchableOpacity style={styles.btnPrimario}>
-              <Text style={styles.textoBotao}>Fazer Login</Text>
-            </TouchableOpacity>
+            <Link href='/login'>
+              <TouchableOpacity style={styles.btnPrimario}>
+                <Text style={styles.textoBotao}>Fazer Login</Text>
+              </TouchableOpacity>
+            </Link>
 
-            <TouchableOpacity style={styles.btnSecundario}>
-              <Text style={styles.textoBotao}>Fale Conosco</Text>
-            </TouchableOpacity>
+            <Link href='/contato'>
+              <TouchableOpacity style={styles.btnSecundario}>
+                <Text style={styles.textoBotao}>Fale Conosco</Text>
+              </TouchableOpacity>
+            </Link>
+
           </View>
-
+          
           <Text style={styles.subCabc}>Porque comprar na Café Central</Text>
         </View>
 

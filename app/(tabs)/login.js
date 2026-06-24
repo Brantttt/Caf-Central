@@ -11,59 +11,58 @@ import {
   Alert,
 } from 'react-native';
 
-import { Link } from 'expo-router';
+import { Link, useRouter } from 'expo-router';
 
 export default function Login() {
-
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
+  const [mensagemSistema, setMensagemSistema] = useState('');
+
+  // Hook para navegação
+  const router = useRouter();
 
   const realizarLogin = () => {
-
     if (email === '' || senha === '') {
-
-      Alert.alert(
-        'Erro',
-        'Por favor, preencha todos os campos.'
-      );
-
+      Alert.alert('Erro', 'Por favor, preencha todos os campos.');
+      setMensagemSistema('Erro: Por favor, preencha todos os campos.');
       return;
     }
 
-    Alert.alert(
-      'Sucesso',
-      'Login realizado com sucesso!'
-    );
+    if (!email.includes('@') || !email.includes('.com')) {
+      Alert.alert('Erro', 'Digite um e-mail válido.');
+      setMensagemSistema('Erro: Digite um e-mail válido.');
+      return;
+    }
 
+    if (senha.length < 6) {
+      Alert.alert('Erro', 'A senha deve ter pelo menos 6 caracteres.');
+      setMensagemSistema('Erro: A senha deve ter pelo menos 6 caracteres.');
+      return;
+    }
+
+    Alert.alert('Sucesso', 'Login realizado com sucesso!');
+    setMensagemSistema('Sucesso: Login realizado com sucesso!');
     setEmail('');
     setSenha('');
+
+    // Redireciona para a página cardápio após validação
+    router.push('/cardapio');
   };
 
   return (
-
     <ScrollView contentContainerStyle={styles.scrollContainer}>
-
       {/* TOPO */}
       <Header ativo="login"></Header>
 
       {/* CONTEÚDO */}
       <View style={styles.container}>
-
-        <Text style={styles.tituloPagina}>
-          Faça seu Login
-        </Text>
-
-        <Text style={styles.subtitulo}>
-          Entre com seu e-mail e senha.
-        </Text>
+        <Text style={styles.tituloPagina}>Faça seu Login</Text>
+        <Text style={styles.subtitulo}>Entre com seu e-mail e senha.</Text>
 
         <View style={styles.card}>
-
           {/* EMAIL */}
           <View style={styles.campo}>
-
             <Text style={styles.label}>E-mail</Text>
-
             <TextInput
               style={styles.input}
               placeholder="Digite seu email"
@@ -72,14 +71,11 @@ export default function Login() {
               value={email}
               onChangeText={setEmail}
             />
-
           </View>
 
           {/* SENHA */}
           <View style={styles.campo}>
-
             <Text style={styles.label}>Senha</Text>
-
             <TextInput
               style={styles.input}
               placeholder="Digite sua senha"
@@ -88,39 +84,42 @@ export default function Login() {
               value={senha}
               onChangeText={setSenha}
             />
-
           </View>
 
           {/* BOTÃO LOGIN */}
-          <TouchableOpacity
-            style={styles.botao}
-            onPress={realizarLogin}
-          >
-
-            <Text style={styles.textoBotao}>
-              Entrar
-            </Text>
-
+          <TouchableOpacity style={styles.botao} onPress={realizarLogin}>
+            <Text style={styles.textoBotao}>Entrar</Text>
           </TouchableOpacity>
+
+          {/* Mensagem de validação visível na tela */}
+          {mensagemSistema !== '' && (
+            <Text
+              style={{
+                marginTop: 10,
+                textAlign: 'center',
+                color: mensagemSistema.startsWith('Erro') ? 'red' : 'green',
+              }}
+            >
+              {mensagemSistema}
+            </Text>
+          )}
 
           {/* LINK CADASTRO */}
           <Link href="/cadastro">
-
             <Text style={styles.linkCadastro}>
               Não possui conta? Cadastre-se
             </Text>
-
           </Link>
-
         </View>
       </View>
 
       {/* RODAPÉ */}
       <Footer></Footer>
-
     </ScrollView>
   );
 }
+
+
 
 const styles = StyleSheet.create({
 

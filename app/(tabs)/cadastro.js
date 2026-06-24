@@ -10,7 +10,7 @@ import {
   Alert,
 } from 'react-native';
 
-import { Link } from 'expo-router';
+import { Link, useRouter } from 'expo-router';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 
@@ -19,9 +19,18 @@ export default function Cadastro() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
 
+  // Estado adicional para mostrar mensagens na tela além do Alert
+  const [mensagem, setMensagem] = useState('');
+
+  // Hook para navegação
+  const router = useRouter();
+
   const realizarCadastro = () => {
     if (nome === '' || email === '' || senha === '') {
+      // Mostra alerta no celular
       Alert.alert('Erro', 'Por favor, preencha todos os campos.');
+      // Mostra mensagem na tela (útil no navegador)
+      setMensagem('Erro: Por favor, preencha todos os campos.');
       return;
     }
 
@@ -29,18 +38,21 @@ export default function Cadastro() {
       'Sucesso',
       `Cadastro de ${nome} realizado com sucesso!`
     );
+    setMensagem(`Sucesso: Cadastro de ${nome} realizado com sucesso!`);
 
     setNome('');
     setEmail('');
     setSenha('');
+
+    // Redireciona para a página de login após cadastro
+    router.push('/login');
   };
 
   return (
     <ScrollView contentContainerStyle={styles.scrollContainer}>
 
       {/* TOPO */}
-     <Header ativo="cadastro"></Header>
-
+      <Header ativo="cadastro"></Header>
 
       {/* CONTEÚDO */}
       <View style={styles.container}>
@@ -100,6 +112,13 @@ export default function Cadastro() {
             <Text style={styles.textoBotao}>Cadastrar</Text>
           </TouchableOpacity>
 
+          {/* Mensagem de validação visível na tela */}
+          {mensagem !== '' && (
+            <Text style={{ marginTop: 10, textAlign: 'center', color: mensagem.startsWith('Erro') ? 'red' : 'green' }}>
+              {mensagem}
+            </Text>
+          )}
+
         </View>
       </View>
 
@@ -109,6 +128,7 @@ export default function Cadastro() {
     </ScrollView>
   );
 }
+
 
 const styles = StyleSheet.create({
 
